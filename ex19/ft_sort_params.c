@@ -1,8 +1,8 @@
 #include <unistd.h>
 
-void		ft_putchar(char c);
+void	ft_putchar(char c);
 
-void		ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
 	while (*str != '\0')
 	{
@@ -12,7 +12,7 @@ void		ft_putstr(char *str)
 	ft_putchar('\n');
 }
 
-int		ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 != '\0')
 	{
@@ -26,11 +26,11 @@ int		ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-void		ft_sort(char **tab, int size)
+void	ft_sort(char **tab, int size)
 {
-	int i;
-	int j;
-	char *temp;
+	int		i;
+	int		j;
+	char	*temp;
 
 	i = 0;
 	while (i < size)
@@ -38,7 +38,7 @@ void		ft_sort(char **tab, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if((ft_strcmp(tab[i], tab[j])) > 0)
+			if ((ft_strcmp(tab[i], tab[j])) > 0)
 			{
 				temp = tab[i];
 				tab[i] = tab[j];
@@ -50,13 +50,10 @@ void		ft_sort(char **tab, int size)
 	}
 	i = 0;
 	while (i < size)
-	{
-		ft_putstr(tab[i]);
-		i++;
-	}
+		ft_putstr(tab[i++]);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	ft_sort(argv + 1, argc - 1);
 	return (0);

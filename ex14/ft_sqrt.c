@@ -1,7 +1,7 @@
-int		ft_sqrt(int nb)
+int	ft_sqrt(int nb)
 {
-	int i;
-	int sqrt;
+	int	i;
+	int	sqrt;
 
 	i = 0;
 	sqrt = 0;

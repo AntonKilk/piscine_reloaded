@@ -6,27 +6,38 @@
 /*   By: akilk <akilk@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 09:40:57 by akilk             #+#    #+#             */
-/*   Updated: 2021/10/29 14:41:21 by akilk            ###   ########.fr       */
+/*   Updated: 2021/10/29 15:26:10 by akilk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-#define BUF_SIZE 30000
+#define BUF_SIZE 30
+
+int	ft_strlen(char *str)
+{
+	int	length;
+
+	length = 0;
+	while (*str != '\0')
+	{
+		length++;
+		str++;
+	}
+	return (length);
+}
 
 void	exec_file(int fd)
 {
-	int		i;
 	int		ret;
 	char	buf[BUF_SIZE + 1];
 
 	ret = read(fd, buf, BUF_SIZE);
-	buf[ret] = '\0';
-	i = 0;
-	while (buf[i] != '\0')
+	while (ret)
 	{
-		write(1, &buf[i], 1);
-		i++;
+		buf[ret] = '\0';
+		write(1, buf, ft_strlen(buf));
+		ret = read(fd, buf, BUF_SIZE);
 	}
 }
 

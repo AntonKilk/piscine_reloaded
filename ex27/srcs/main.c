@@ -6,13 +6,13 @@
 /*   By: akilk <akilk@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 09:40:57 by akilk             #+#    #+#             */
-/*   Updated: 2021/10/29 11:25:59 by akilk            ###   ########.fr       */
+/*   Updated: 2021/10/29 13:49:41 by akilk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-#define BUF_SIZE 4096
+#define BUF_SIZE 30000
 
 void	exec_file(int fd)
 {
@@ -52,12 +52,13 @@ int	main(int argc, char **argv)
 	if (argc_error_handling(argc))
 		return (0);
 	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
+	if (fd > 0)
+		exec_file(fd);
+	else
 	{
 		write(2, "open() error.", 14);
 		return (1);
 	}
-	exec_file(fd);
 	if (close(fd) == -1)
 	{
 		write(2, "close() error.", 15);

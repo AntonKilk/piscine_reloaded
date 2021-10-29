@@ -6,7 +6,7 @@
 /*   By: akilk <akilk@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 09:40:57 by akilk             #+#    #+#             */
-/*   Updated: 2021/10/29 15:26:10 by akilk            ###   ########.fr       */
+/*   Updated: 2021/10/29 16:33:36 by akilk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	exec_file(int fd)
 		write(1, buf, ft_strlen(buf));
 		ret = read(fd, buf, BUF_SIZE);
 	}
+	close(fd);
 }
 
 int	argc_error_handling(int argc)
@@ -56,6 +57,7 @@ int	argc_error_handling(int argc)
 	return (0);
 }
 
+
 int	main(int argc, char **argv)
 {
 	int	fd;
@@ -66,14 +68,6 @@ int	main(int argc, char **argv)
 	if (fd > 0)
 		exec_file(fd);
 	else
-	{
 		write(2, "open() error.\n", 15);
-		return (1);
-	}
-	if (close(fd) == -1)
-	{
-		write(2, "close() error.\n", 16);
-		return (1);
-	}
 	return (0);
 }

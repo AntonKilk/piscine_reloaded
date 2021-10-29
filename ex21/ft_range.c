@@ -6,7 +6,7 @@
 /*   By: akilk <akilk@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:37:47 by akilk             #+#    #+#             */
-/*   Updated: 2021/10/28 17:37:47 by akilk            ###   ########.fr       */
+/*   Updated: 2021/10/29 13:02:35 by akilk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	*ft_range(int min, int max)
 	if (min >= max)
 		return (0);
 	size = max - min;
-	range = (int *)malloc(sizeof(int));
+	range = (int *)malloc(sizeof(int) * size);
 	if (range == NULL)
 		return (0);
 	i = 0;
